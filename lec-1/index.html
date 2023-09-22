@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lecture-2</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Office Data</h1>
+    <table style="margin: auto;" border="1" cellpadding ="10">
+        <tr style = "text-align :center">
+            <td>Userid</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Password</td>
+            <td>Role</td>
+        </tr>
+
+      
+        <tbody id ="record"></tbody>
+  
+       
+    </table>
+    <table style="margin :20px auto">
+        <tr>
+            <td>
+                <input type="text"  id="username" ><button onclick="filter()" style="margin:0px 20px">Submit</button>
+            </td>
+        </tr>
+    </table>
+
+
+
+</body>
+<script>
+    let data = [
+        {
+            userid: 1,
+            name: 'Nensi',
+            email: 'nensi@gmail.com',
+            password: '1234',
+            role: 'Manager'
+        },
+        {
+            userid: 2,
+            name: 'Dhruvi',
+            email: 'dhruvi@gmail.com',
+            password: '7412',
+            role: 'Employee'
+           
+        },
+        {
+            userid: 3,
+            name: 'Hensi',
+            email: 'Hensi@gmail.com',
+            password: '5678',
+            role: 'Tl'
+     
+        },
+        {
+            userid: 4,
+            name: 'Ruta',
+            email: 'Ruta@gmail.com',
+            password: '4561',
+            role: 'Tl'
+        },
+        {
+            userid: 5,
+            name: 'shruti',
+            email: 'shruti@gmail.com',
+            password: '7412',
+            role: 'Employee'
+        },
+        {
+            userid: 6,
+            name: 'Ravina',
+            email: 'Ravina@gmail.com',
+            password: '9999',
+            role: 'Manager'
+        }
+    ];
+
+   const view = ()=>{
+        let tbl ="";
+        data.map((v)=>{
+       
+            tbl += ` 
+                       <tr>
+                            <td style = "text-align :center">${v.userid}</td>
+                            <td style = "text-align :center">${v.name}</td>
+                            <td style = "text-align :center">${v.email}</td>
+                            <td style = "text-align :center">${v.password}</td>
+                            <td style = "text-align :center">${v.role}</td>
+                       </tr>
+                   `
+
+        });
+        document.getElementById('record').innerHTML = tbl;
+   }
+
+   view();
+
+   const filter = ()=>{
+    let name  = document.getElementById('username').value;
+
+       let ans=  data.filter((v)=>{
+             if(v.role == "Manager"){
+                return v.role == name;
+             }
+             else if(v.role == "Tl"){
+                return v.role == name;
+             }
+             else{
+                return v.role == name;
+             }
+             
+         });
+
+         data = ans;
+         view();
+   }
+</script>
+
+</html>
